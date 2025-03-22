@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        #response {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Ask the AI Agent</h2>
+    <input type="text" id="query" placeholder="Enter your query">
+    <button onclick="sendQuery()">Submit</button>
+    <div id="response"></div>
+
+    <script>
+        async function sendQuery() {
+            let query = document.getElementById("query").value;
+            let responseDiv = document.getElementById("response");
+
+            if (!query) {
+                responseDiv.innerHTML = "Please enter a query.";
+                return;
+            }
+
+            responseDiv.innerHTML = "Processing...";
+
+            try {
+                let response = await fetch("https://your-n8n-endpoint.com/webhook", { // Replace with your n8n webhook URL
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ query: query })
+                });
+
+                let result = await response.json();
+                responseDiv.innerHTML = "Response: " + (result.message || "No response received");
+            } catch (error) {
+                responseDiv.innerHTML = "Error: " + error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>
