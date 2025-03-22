@@ -32,7 +32,7 @@
             body: JSON.stringify({ input: inputText })
           });
             if (!response.ok) {
-                throw new Error(`HTTP error! Status:${responce.status}`);
+                throw new Error(`HTTP error! Status:${response.status}`);
             }
           const result = await response.json();
           document.getElementById("response").innerText = result.message;
@@ -46,16 +46,5 @@
       <input type="text" id="query" placeholder="Enter your query">
       <button onclick="sendQuery()">Submit</button>
       <div id="response"></div>
-</body>
-</html>
-
-                const result = await response.json();
-                document.getElementById("response").innerText = result.message;
-            } catch (error) {
-                document.getElementById("response").innerText = "Error: " + error.message;
-                console.error("Fetch error:", error);
-            }
-        }
-    </script>
 </body>
 </html>
