@@ -31,10 +31,14 @@
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ input: inputText })
           });
+        console.log("Response Status:", response.status);
+        console.log("Response Headers:", response.headers);
+              
             if (!response.ok) {
                 throw new Error(`HTTP error! Status:${response.status}`);
             }
           const result = await response.json();
+          console.log("API Response:", result);
           document.getElementById("response").innerText = result.message;
           } catch (error) {
               document.getElementById("response").innerText = "Error: " + error.message;
