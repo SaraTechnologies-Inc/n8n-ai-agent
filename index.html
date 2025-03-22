@@ -32,13 +32,13 @@
             body: JSON.stringify({ input: inputText })
           });
             if (!response.ok) {
-                throw new Error('HTTP error! Status:${responce.status}');
+                throw new Error(`HTTP error! Status:${responce.status}`);
             }
           const result = await response.json();
-          document.getElementById("responce").innerText = result.message;
+          document.getElementById("response").innerText = result.message;
           } catch (error) {
-              document.getElementById("responce").innerText = "Error: " + error.message;
-              console.error(Fetch error:", error);
+              document.getElementById("response").innerText = "Error: " + error.message;
+              console.error("Fetch error:", error);
           }
         }
       </script>
