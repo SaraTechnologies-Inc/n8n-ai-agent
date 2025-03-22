@@ -22,12 +22,6 @@
     </style>
 </head>
 <body>
-
-    <h2>Ask the AI Agent</h2>
-    <input type="text" id="query" placeholder="Enter your query">
-    <button onclick="sendQuery()">Submit</button>
-    <div id="response"></div>
-    
     <script>
         async function sendData() {
           const inputText = document.getElementById("inputField").value;
@@ -40,10 +34,9 @@
           alert(result.message);
         }
       </script>
-      
-      <input type="text" id="inputField" placeholder="Enter data">
-      <button onclick="sendData()">Submit</button>
-      
-
+       <h2>Ask the AI Agent</h2>
+      <input type="text" id="query" placeholder="Enter your query">
+      <button onclick="sendQuery()">Submit</button>
+      <div id="response"></div>
 </body>
 </html>
