@@ -43,9 +43,7 @@
             if (!response.ok) {
                 throw new Error(`HTTP error! Status:${response.status}`);
             }
-            if (!rawText) {
-            throw new Error("Empty response body");
-            }
+           
          
         const result = JSON.parse(rawText);  
        // const result = await response.json();
